@@ -7,7 +7,6 @@ body {
     line-height: 1.5;
     margin: 0;
     padding: 0;
-    text-align: left;
 }
 
 /* Container */
@@ -18,7 +17,6 @@ body {
     padding: 2em 3em;
     border: 1px solid #ddd;
     box-shadow: 0 1px 2px rgba(0,0,0,0.15);
-    text-align: left;
 }
 
 /* Profile Header */
@@ -46,14 +44,9 @@ body {
     object-fit: cover;
     border: 2px solid #fff;
     box-shadow: 0 0 3px rgba(0,0,0,0.2);
-    display: block;
 }
 
 /* Header & Contact */
-h1, h2, h3, p, ul, li, .contact, .profile-info {
-    text-align: left;
-}
-
 h1 {
     margin: 0 0 0.5em;
     font-size: 3em;
@@ -83,6 +76,29 @@ h1 {
 .contact i {
     color: #555;
     margin-right: 0.3em;
+}
+
+/* Download button */
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    background: #0076df;
+    color: white !important;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-top: 1em;
+    transition: background-color 0.2s;
+}
+
+.download-btn:hover {
+    background: #0056b3;
+    text-decoration: none !important;
+}
+
+.download-btn i {
+    margin-right: 0.5em;
+    color: white !important;
 }
 
 /* Sections */
@@ -143,6 +159,7 @@ p strong {
 
     .profile-image {
         width: 80px;
+        margin-bottom: 1em;
     }
 
     .profile-image img {
@@ -166,38 +183,35 @@ p strong {
     }
 }
 
-/* Skills section */
-.skills strong {
-    display: inline-block;
-    margin-right: 0.5em;
-    color: #222;
-}
-
 /* Print styles */
 @media print {
+    @page {
+        size: A4;
+        margin: 1.5cm;
+    }
+
     body {
-        padding: 0;
-        background: #fff;
-        font-size: 12pt;
+        background: white;
+        font-size: 11pt;
     }
 
     #cv-content {
-        border: none;
+        margin: 0;
         padding: 0;
+        border: none;
         box-shadow: none;
     }
 
-    a {
-        color: #000;
-        text-decoration: none;
+    .download-btn {
+        display: none;
     }
-}
 
-/* Responsive adjustments */
-@media screen and (max-width: 1000px) {
-    #cv-content {
-        padding: 4em;
-        margin: 0 2em;
+    section {
+        page-break-inside: avoid;
+    }
+
+    h2, h3 {
+        page-break-after: avoid;
     }
 }
   

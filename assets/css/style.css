@@ -12,9 +12,9 @@ body {
 /* Container */
 #cv-content {
     background: #fff;
-    max-width: 48em;  /* Reduced from 58em to match source */
-    margin: 0 auto;   /* Center the container */
-    padding: 4em 8em; /* Increased padding on sides */
+    max-width: 48em;
+    margin: 0 auto;
+    padding: 4em 8em;
     border: 1px solid #eee;
     box-shadow: 0 0 3px rgba(0,0,0,0.1);
 }

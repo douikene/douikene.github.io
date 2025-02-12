@@ -139,4 +139,46 @@ li {
         margin: 0 0.5em;
     }
 }
+
+/* Profile Header */
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2em;
+}
+
+.profile-info {
+    flex: 1;
+}
+
+.profile-image {
+    margin-left: 2em;
+}
+
+.profile-image img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #fff;
+    box-shadow: 0 0 3px rgba(0,0,0,0.2);
+}
+
+/* Responsive adjustments for profile */
+@media screen and (max-width: 768px) {
+    .profile-header {
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
+    }
+
+    .profile-image {
+        margin: 0 0 1em 0;
+    }
+
+    .profile-info {
+        width: 100%;
+    }
+}
   

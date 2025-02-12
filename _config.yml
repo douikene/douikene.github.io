@@ -1,6 +1,6 @@
 title: Djamal Eddine Ouikene - CV
 description: Professional CV of Djamal Eddine Ouikene
-baseurl: ""
+baseurl: ""  # Leave empty for user site
 url: "https://douikene.github.io"
 
 # Build settings

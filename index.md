@@ -1,8 +1,3 @@
----
-layout: default
-title: "Djamal Eddine Ouikene - CV"
----
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

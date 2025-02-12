@@ -1,81 +1,116 @@
-<p>&lt;!DOCTYPE html&gt;</p>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Djamal Eddine Ouikene - CV</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
-        h1, h2 { color: #333; }
-        h1 { border-bottom: 2px solid #444; padding-bottom: 5px; }
-        section { margin-bottom: 20px; }
-        .contact { margin-bottom: 10px; }
-    </style>
 </head>
 <body>
-    <h1>Djamal Eddine Ouikene</h1>
-    <div class="contact">
-        <p>Director, Software Development &amp; IT Operations</p>
-        <p>Singapore | +65 8147 8720 | <a href="mailto:d.ouikene@gmail.com">d.ouikene@gmail.com</a></p>
-    </div>
+    <div id="cv-content" class="loading">Loading...</div>
 
-    <section>
-        <h2>Professional Summary</h2>
-        <p>Dynamic and results-driven IT leader with over 17 years of global experience. Transitioning from software development and OSS/BSS systems integration to strategic leadership roles, I have cultivated a diverse, international perspective. Currently serving as Director at NTT Ltd., managing global teams across software development and IT operations. Known for fostering high-performing, cross-functional teams and driving innovation through technology alignment with business goals. Skilled in system and service design, driving DevOps transformations, leading architecture transitions to microservices with API-first approaches, and optimizing billing systems for business growth. Proven ability to scale engineering teams effectively, lead data-driven projects, and support enterprise-level decision-making in complex environments. Currently exploring the transformative potential of Artificial Intelligence (AI) in enhancing business operations and decision-making, with a keen interest in leveraging AI-driven technologies in future projects.</p>
-    </section>
+    <script>
+        async function loadCV() {
+            try {
+                const response = await fetch('/data/cv.json');
+                const data = await response.json();
+                renderCV(data);
+            } catch (error) {
+                console.error('Error loading CV data:', error);
+                document.getElementById('cv-content').innerHTML = 'Error loading CV data';
+            }
+        }
 
-    <section>
-        <h2>Professional Experience</h2>
-        <h3>NTT Ltd. (Singapore)</h3>
-        <p><strong>Director, Software Development &amp; Production</strong> (Aug 2022 – Present)</p>
-        <ul>
-            <li>Led transformation from monolithic ERP to microservice architecture with API-first approach.</li>
-            <li>Managed teams across Singapore, India, France, Canada, Australia, and South Africa.</li>
-            <li>Introduced SRE team, customized Agile processes, and productized APIs for phone number ordering.</li>
-            <li>Provided technical leadership in diverse technology environments, overseeing projects involving Java, .NET, and modern API-first architectures.</li>
-            <li>Led cross-functional software engineering teams in the design and delivery of scalable, cloud-based solutions.</li>
-        </ul>
+        function renderCV(data) {
+            const content = document.getElementById('cv-content');
+            
+            content.innerHTML = `
+                <div class="profile-header">
+                    <div class="profile-info">
+                        <h1>${data.personalInfo.name}</h1>
+                        <div class="contact">
+                            <p>${data.personalInfo.title}</p>
+                            <p>
+                                <i class="fas fa-map-marker-alt"></i> ${data.personalInfo.location} | 
+                                <i class="fas fa-phone"></i> <a href="tel:${data.personalInfo.phone}">${data.personalInfo.phone}</a> | 
+                                <i class="fas fa-envelope"></i> <a href="mailto:${data.personalInfo.email}">${data.personalInfo.email}</a> | 
+                                <i class="fab fa-github"></i> <a href="${data.personalInfo.github}" target="_blank">douikene</a> |
+                                <i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/douikene/" target="_blank">douikene</a> |
+                                <i class="fas fa-globe"></i> <a href="${data.personalInfo.url}" target="_blank">douikene.github.io</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="profile-image">
+                        <img src="${data.personalInfo.picture}" alt="${data.personalInfo.name}">
+                    </div>
+                </div>
 
-        <h3>Arkadin Audio, Web &amp; Video Conferencing (Paris, France)</h3>
-        <p><strong>Functional Architect</strong> (Apr 2017 – May 2019)</p>
-        <ul>
-            <li>Designed architecture solutions and improved financial operations through billing systems.</li>
-            <li>Led a strategic project implementing a public API for Sumitomo, a key customer in Japan.</li>
-        </ul>
-    </section>
+                <section>
+                    <h2>Professional Summary</h2>
+                    <p>${data.professionalSummary}</p>
+                </section>
 
-    <section>
-        <h2>Education &amp; Certifications</h2>
-        <ul>
-            <li><strong>DESS in Networks &amp; Telecommunications</strong> – University of Paris-Sud XI (2008)</li>
-            <li><strong>Engineering Degree in Computer Science</strong> – INI, Algeria (2007)</li>
-            <li>eTOM (Business Process Framework), SID, TAM, DevOps Foundations, Azure DevOps, OWASP Top 10, Etom Frameworx Overview, NTT Leadership Accelerator Series (2024)</li>
-        </ul>
-    </section>
+                <section>
+                    <h2>Professional Experience</h2>
+                    ${renderExperience(data.experience)}
+                </section>
 
-    <section>
-        <h2>Technical Skills</h2>
-        <ul>
-            <li><strong>Software/Tools:</strong> SoapUI, LoadUI, Enterprise Architect, Wireshark</li>
-            <li><strong>DevOps:</strong> SRE, Agile, Jenkins, Git, Docker, Kubernetes</li>
-            <li><strong>Databases:</strong> SQL Server, MySQL, Oracle</li>
-            <li><strong>Programming:</strong> Java, Perl, JavaScript, C/C++, HTML, Python</li>
-            <li><strong>Cloud/Networking:</strong> AWS, IP, TCP, UDP, MPLS, GSM, LTE</li>
-        </ul>
-    </section>
+                <section>
+                    <h2>Education & Certifications</h2>
+                    <ul>
+                        ${data.education.map(edu => `
+                            <li><strong>${edu.degree}</strong> – ${edu.institution} (${edu.year})</li>
+                        `).join('')}
+                        <li>${data.certifications.join(', ')}</li>
+                    </ul>
+                </section>
 
-    <section>
-        <h2>Languages</h2>
-        <p>Kabyle (Native), French (Bilingual), English (Professional), Arabic (Bilingual)</p>
-    </section>
+                <section>
+                    <h2>Technical Skills</h2>
+                    <ul>
+                        ${Object.entries(data.skills).map(([category, skills]) => `
+                            <li><strong>${formatCategory(category)}:</strong> ${skills.join(', ')}</li>
+                        `).join('')}
+                    </ul>
+                </section>
 
-    <section>
-        <h2>Personal Interests</h2>
-        <ul>
-            <li>Marathon enthusiast, participating in endurance events to foster resilience and focus.</li>
-            <li>Global traveler with a passion for exploring cultural leadership practices and diverse business environments.</li>
-        </ul>
-    </section>
+                <section>
+                    <h2>Languages</h2>
+                    <p>${data.languages.map(l => `${l.language} (${l.level})`).join(', ')}</p>
+                </section>
 
+                <section>
+                    <h2>Personal Interests</h2>
+                    <ul>
+                        ${data.interests.map(interest => `<li>${interest}</li>`).join('')}
+                    </ul>
+                </section>
+            `;
+        }
+
+        function renderExperience(experience) {
+            return experience.map(company => `
+                <h3>${company.company} (${company.location})</h3>
+                ${company.roles.map(role => `
+                    <p><strong>${role.title}</strong> (${role.period})</p>
+                    <ul>
+                        ${role.responsibilities.map(resp => `<li>${resp}</li>`).join('')}
+                    </ul>
+                `).join('')}
+            `).join('');
+        }
+
+        function formatCategory(category) {
+            return category
+                .replace(/([A-Z])/g, ' $1')
+                .replace(/^./, str => str.toUpperCase())
+                .trim();
+        }
+
+        // Load the CV when the page loads
+        window.addEventListener('load', loadCV);
+    </script>
 </body>
 </html>

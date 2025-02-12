@@ -1,7 +1,8 @@
-title: "Djamal Eddine Ouikene - CV"
-email: d.ouikene@gmail.com
-description: >- 
-  Professional CV showcasing global leadership in IT and software development.
-baseurl: "" 
-url: "https://douikene.github.io/"
-theme: minima
+title: Djamal Eddine Ouikene - CV
+description: Professional CV of Djamal Eddine Ouikene
+baseurl: ""
+url: "https://douikene.github.io"
+
+# Build settings
+markdown: kramdown
+# Remove or comment out theme line if it exists

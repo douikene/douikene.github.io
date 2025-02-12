@@ -1,0 +1,203 @@
+/* Base styles */
+body {
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #444;
+    background: #f0f0f0;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+/* Container */
+#cv-content {
+    background: #fff;
+    max-width: 48em;
+    margin: 2em auto;
+    padding: 2em 3em;
+    border: 1px solid #ddd;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+    text-align: left;
+}
+
+/* Profile Header */
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2em;
+}
+
+.profile-info {
+    flex: 1;
+    padding-right: 2em;
+}
+
+.profile-image {
+    flex: 0 0 auto;
+    width: 100px;
+}
+
+.profile-image img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+    box-shadow: 0 0 3px rgba(0,0,0,0.2);
+    display: block;
+}
+
+/* Header & Contact */
+h1, h2, h3, p, ul, li, .contact, .profile-info {
+    text-align: left;
+}
+
+h1 {
+    margin: 0 0 0.5em;
+    font-size: 3em;
+    font-weight: 700;
+    color: #222;
+    line-height: 1;
+}
+
+.contact {
+    margin-bottom: 2em;
+    color: #555;
+}
+
+.contact p {
+    margin: 0.25em 0;
+}
+
+.contact a {
+    color: #0076df;
+    text-decoration: none;
+}
+
+.contact a:hover {
+    text-decoration: underline;
+}
+
+.contact i {
+    color: #555;
+    margin-right: 0.3em;
+}
+
+/* Sections */
+section {
+    margin: 1.5em 0;
+}
+
+h2 {
+    text-transform: uppercase;
+    font-size: 1.4em;
+    letter-spacing: 0.1em;
+    color: #222;
+    margin: 0 0 1.5em;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 0.5em;
+}
+
+h3 {
+    font-size: 1.2em;
+    margin: 1.5em 0 0.5em;
+    color: #222;
+}
+
+/* Lists and Content */
+ul {
+    padding-left: 1.2em;
+    margin: 0.5em 0 1.5em;
+}
+
+li {
+    margin: 0.5em 0;
+    color: #555;
+}
+
+p strong {
+    color: #222;
+}
+
+/* Loading state */
+#cv-content.loading {
+    text-align: center;
+    color: #555;
+    font-style: italic;
+    padding: 2em;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    #cv-content {
+        padding: 2em;
+        margin: 1em;
+    }
+    
+    .profile-header {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+    }
+
+    .profile-image {
+        width: 80px;
+    }
+
+    .profile-image img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .profile-info {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #cv-content {
+        padding: 1em;
+        margin: 0.5em;
+    }
+    
+    h1 {
+        font-size: 2em;
+    }
+}
+
+/* Skills section */
+.skills strong {
+    display: inline-block;
+    margin-right: 0.5em;
+    color: #222;
+}
+
+/* Print styles */
+@media print {
+    body {
+        padding: 0;
+        background: #fff;
+        font-size: 12pt;
+    }
+
+    #cv-content {
+        border: none;
+        padding: 0;
+        box-shadow: none;
+    }
+
+    a {
+        color: #000;
+        text-decoration: none;
+    }
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 1000px) {
+    #cv-content {
+        padding: 4em;
+        margin: 0 2em;
+    }
+}
+  

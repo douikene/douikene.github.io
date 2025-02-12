@@ -1,0 +1,44 @@
+@font-face {
+    font-family: 'FontAwesome Brands';
+    src: url('../icons/fa-brands-400.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'FontAwesome Solid';
+    src: url('../icons/fa-solid-900.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+}
+
+.fas {
+    font-family: 'FontAwesome Solid';
+    font-weight: 900;
+}
+
+.fab {
+    font-family: 'FontAwesome Brands';
+    font-weight: normal;
+}
+
+/* Solid icons */
+.fa-map-marker-alt:before { content: "\f3c5"; }
+.fa-phone:before { content: "\f095"; }
+.fa-envelope:before { content: "\f0e0"; }
+.fa-globe:before { content: "\f0ac"; }
+
+/* Brand icons */
+.fa-github:before { content: "\f09b"; }
+.fa-linkedin:before { content: "\f08c"; }
+
+/* Common icon styles */
+.fas:before,
+.fab:before {
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+} 

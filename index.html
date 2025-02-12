@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +14,7 @@
     <script>
         async function loadCV() {
             try {
-                const response = await fetch('/data/cv-data.json');
+                const response = await fetch('/data/cv.json');
                 const data = await response.json();
                 renderCV(data);
             } catch (error) {
@@ -31,9 +32,14 @@
                         <h1>${data.personalInfo.name}</h1>
                         <div class="contact">
                             <p>${data.personalInfo.title}</p>
-                            <p>${data.personalInfo.location} | ${data.personalInfo.phone} | 
-                               <a href="mailto:${data.personalInfo.email}">${data.personalInfo.email}</a> | 
-                               <a href="${data.personalInfo.url}" target="_blank">${data.personalInfo.url}</a></p>
+                            <p>
+                                <i class="fas fa-map-marker-alt"></i> ${data.personalInfo.location} | 
+                                <i class="fas fa-phone"></i> <a href="tel:${data.personalInfo.phone}">${data.personalInfo.phone}</a> | 
+                                <i class="fas fa-envelope"></i> <a href="mailto:${data.personalInfo.email}">${data.personalInfo.email}</a> | 
+                                <i class="fab fa-github"></i> <a href="${data.personalInfo.github}" target="_blank">douikene</a> |
+                                <i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/douikene/" target="_blank">douikene</a> |
+                                <i class="fas fa-globe"></i> <a href="${data.personalInfo.url}" target="_blank">douikene.github.io</a>
+                            </p>
                         </div>
                     </div>
                     <div class="profile-image">

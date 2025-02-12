@@ -1,0 +1,168 @@
+{
+  "personalInfo": {
+    "name": "Djamal Eddine Ouikene",
+    "title": "Director, Software Development & IT Operations",
+    "location": "Singapore",
+    "phone": "+65 8147 8720",
+    "email": "d.ouikene@gmail.com",
+    "url": "https://douikene.github.io/",
+    "github": "https://github.com/douikene",
+    "picture": "/assets/images/profile.png"
+  },
+  "professionalSummary": "Dynamic and results-driven IT leader with over 17 years of global experience. Transitioning from software development and OSS/BSS systems integration to strategic leadership roles, I have cultivated a diverse, international perspective. Currently serving as Director at NTT Ltd., managing global teams across software development and IT operations. Known for fostering high-performing, cross-functional teams and driving innovation through technology alignment with business goals. Skilled in system and service design, driving DevOps transformations, leading architecture transitions to microservices with API-first approaches, and optimizing billing systems for business growth. Proven ability to scale engineering teams effectively, lead data-driven projects, and support enterprise-level decision-making in complex environments. Currently exploring the transformative potential of Artificial Intelligence (AI) in enhancing business operations and decision-making, with a keen interest in leveraging AI-driven technologies in future projects.",
+  "experience": [
+    {
+      "company": "NTT Ltd.",
+      "location": "Singapore",
+      "roles": [
+        {
+          "title": "Director, Software Development & Production",
+          "period": "Aug 2022 – Present",
+          "responsibilities": [
+            "Led transformation from monolithic ERP to microservice architecture with API-first approach.",
+            "Managed teams across Singapore, India, France, Canada, Australia, and South Africa.",
+            "Introduced SRE team, customized Agile processes, and productized APIs for phone number ordering.",
+            "Provided technical leadership in diverse technology environments, overseeing projects involving Java, .NET, and modern API-first architectures.",
+            "Led cross-functional software engineering teams in the design and delivery of scalable, cloud-based solutions."
+          ]
+        },
+        {
+          "title": "Director, Software Development & Support",
+          "period": "Oct 2019 – Jul 2022",
+          "responsibilities": [
+            "Managed development teams in India and support teams in Singapore.",
+            "Enhanced billing systems and drove continuous process improvements.",
+            "Spearheaded the delivery of a customer-facing portal, improving user engagement by 25% through an API-first architecture and seamless service integration.",
+            "Drove Agile transformation and implemented data-centric systems to support enterprise-level decision-making."
+          ]
+        }
+      ]
+    },
+    {
+      "company": "Arkadin Audio, Web & Video Conferencing",
+      "location": "Paris, France",
+      "roles": [
+        {
+          "title": "Functional Architect",
+          "period": "Apr 2017 – May 2019",
+          "responsibilities": [
+            "Designed architecture solutions and improved financial operations through billing systems.",
+            "Led a strategic project implementing a public API for Sumitomo, a key customer in Japan."
+          ]
+        },
+        {
+          "title": "IT Senior Business Analyst",
+          "period": "Jan 2015 – Mar 2017",
+          "responsibilities": [
+            "Led business analysis and contributed to billing solution developments.",
+            "Provided OSS/BSS expertise, guiding customers through system redesign, analyzing existing infrastructures, and implementing changes to optimize provisioning and billing solutions."
+          ]
+        }
+      ]
+    },
+    {
+      "company": "Davidson Consulting",
+      "location": "Paris, France",
+      "roles": [
+        {
+          "title": "OSS/BSS Business Analyst",
+          "period": "Sep 2011 – Jan 2015",
+          "responsibilities": [
+            "Specialized in OSS/BSS integrations and billing system implementations.",
+            "Intervened as an OSS/BSS expert, assisting customers in redesigning their systems, providing strategic guidance, analyzing business processes, and implementing changes to enhance provisioning and billing solutions for clients like Alcatel and Arkadin."
+          ]
+        }
+      ]
+    },
+    {
+      "company": "Alcatel-Lucent, Inc.",
+      "location": "Villarceux, France",
+      "roles": [
+        {
+          "title": "OSS/BSS System Integration Engineer",
+          "period": "Oct 2008 – Sep 2011",
+          "responsibilities": [
+            "Integrated SLA, performance management solutions, and supported billing integrations.",
+            "Worked on a high-profile project during the 2010 FIFA World Cup in South Africa, implementing a Netcool solution for Telkom SA. Provided onsite support to ensure successful integration, conducted User Acceptance Testing (UAT), and delivered local technical support to maintain service quality throughout the event."
+          ]
+        },
+        {
+          "title": "Telecom Network Engineer Trainee",
+          "period": "Apr 2008 – Sep 2008",
+          "responsibilities": [
+            "Developed performance simulators and analytical tools."
+          ]
+        }
+      ]
+    },
+    {
+      "company": "Algerie Telecom Satellite, Inc.",
+      "location": "Ben Aknoun, Algeria",
+      "roles": [
+        {
+          "title": "Computer Engineer Trainee",
+          "period": "Oct 2006 – Sep 2007",
+          "responsibilities": [
+            "Designed and implemented bandwidth estimation tools using SNMP/MIB architecture to optimize network performance and resource allocation.",
+            "Conducted an in-depth study on the performance management framework, identifying inefficiencies and proposing improvements for better bandwidth utilization.",
+            "Developed a dynamic model for bandwidth consumption estimation, leveraging real-time data to improve predictive accuracy.",
+            "Created automated scripts for data collection, processing, and visualization to support network analysis and decision-making processes.",
+            "Collaborated with network engineers to integrate the performance management system with existing OSS/BSS platforms, enhancing operational efficiency.",
+            "Provided technical documentation and training to operational teams, ensuring sustainable knowledge transfer and system maintenance."
+          ]
+        }
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "DESS in Networks & Telecommunications",
+      "institution": "University of Paris-Sud XI",
+      "year": "2008"
+    },
+    {
+      "degree": "Engineering Degree in Computer Science",
+      "institution": "INI, Algeria",
+      "year": "2007"
+    }
+  ],
+  "certifications": [
+    "eTOM (Business Process Framework)",
+    "SID",
+    "TAM",
+    "DevOps Foundations",
+    "Azure DevOps",
+    "OWASP Top 10",
+    "Etom Frameworx Overview",
+    "NTT Leadership Accelerator Series (2024)"
+  ],
+  "skills": {
+    "software": ["SoapUI", "LoadUI", "Enterprise Architect", "Wireshark"],
+    "devops": ["SRE", "Agile", "Jenkins", "Git", "Docker", "Kubernetes"],
+    "databases": ["SQL Server", "MySQL", "Oracle"],
+    "programming": ["Java", "Perl", "JavaScript", "C/C++", "HTML", "Python"],
+    "cloudNetworking": ["AWS", "IP", "TCP", "UDP", "MPLS", "GSM", "LTE"]
+  },
+  "languages": [
+    {
+      "language": "Kabyle",
+      "level": "Native"
+    },
+    {
+      "language": "French",
+      "level": "Bilingual"
+    },
+    {
+      "language": "English",
+      "level": "Professional"
+    },
+    {
+      "language": "Arabic",
+      "level": "Bilingual"
+    }
+  ],
+  "interests": [
+    "Marathon enthusiast, participating in endurance events to foster resilience and focus.",
+    "Global traveler with a passion for exploring cultural leadership practices and diverse business environments."
+  ]
+} 

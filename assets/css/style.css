@@ -1,27 +1,22 @@
 /* Base styles */
 body {
     font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    padding: 2em;
     color: #333;
     background: #fafafa;
     font-size: 16px;
     line-height: 1.5;
-    max-width: 64em;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    min-height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 
 /* Container */
 #cv-content {
     background: #fff;
-    padding: 3em;
+    max-width: 48em;  /* Reduced from 58em to match source */
+    margin: 0 auto;   /* Center the container */
+    padding: 4em 8em; /* Increased padding on sides */
     border: 1px solid #eee;
     box-shadow: 0 0 3px rgba(0,0,0,0.1);
-    margin: 2em auto;
-    width: 100%;
-    max-width: 58em;
 }
 
 /* Header & Contact */
@@ -124,31 +119,24 @@ li {
 }
 
 /* Responsive adjustments */
-@media screen and (max-width: 768px) {
-    body {
-        padding: 1em;
+@media screen and (max-width: 1000px) {
+    #cv-content {
+        padding: 4em;
+        margin: 0 2em;
     }
+}
 
+@media screen and (max-width: 768px) {
     #cv-content {
         padding: 2em;
-    }
-
-    h1 {
-        font-size: 2.5em;
+        margin: 0 1em;
     }
 }
 
 @media screen and (max-width: 480px) {
-    body {
-        padding: 0.5em;
-    }
-
     #cv-content {
-        padding: 1.5em;
-    }
-
-    h1 {
-        font-size: 2em;
+        padding: 1em;
+        margin: 0 0.5em;
     }
 }
   

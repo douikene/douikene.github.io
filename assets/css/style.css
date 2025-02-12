@@ -1,11 +1,59 @@
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    padding: 20px;
-    background-color: #f4f4f4;
-    color: #333;
-  }
-  h1, h2 {
-    color: #2c3e50;
-  }
+/* Base styles */
+body { 
+    font-family: Arial, sans-serif; 
+    margin: 20px; 
+    line-height: 1.6; 
+}
+
+/* Headings */
+h1, h2 { 
+    color: #333; 
+}
+
+h1 { 
+    border-bottom: 2px solid #444; 
+    padding-bottom: 5px; 
+}
+
+/* Sections */
+section { 
+    margin-bottom: 20px; 
+}
+
+/* Contact info */
+.contact { 
+    margin-bottom: 10px; 
+}
+
+/* Links */
+a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Lists */
+ul {
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+/* Experience section */
+h3 {
+    color: #444;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+/* Loading state */
+#cv-content.loading {
+    color: #666;
+    font-style: italic;
+}
   

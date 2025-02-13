@@ -141,7 +141,7 @@
     "devops": ["SRE", "Agile", "Jenkins", "Git", "Docker", "Kubernetes"],
     "databases": ["SQL Server", "MySQL", "Oracle"],
     "programming": ["Java", "Perl", "JavaScript", "C/C++", "HTML", "Python"],
-    "cloudNetworking": ["AWS", "IP", "TCP", "UDP", "MPLS", "GSM", "LTE"]
+    "cloud": ["AWS", "Azure"]
   },
   "languages": [
     {

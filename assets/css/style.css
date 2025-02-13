@@ -46,6 +46,9 @@ body {
     object-fit: cover;
     border: 3px solid #fff;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
 }
 
 /* Typography */
@@ -90,7 +93,7 @@ h3 {
 .contact a {
     color: #1a73e8;
     text-decoration: none;
-    transition: color 0.2s;
+    transition: all 0.2s ease;
     padding: 0.1em 0;
     border-bottom: 1px solid transparent;
 }
@@ -140,6 +143,7 @@ p strong {
     font-weight: 500;
     margin-top: 1.2em;
     transition: all 0.2s ease;
+    text-decoration: none;
 }
 
 .download-btn:hover {

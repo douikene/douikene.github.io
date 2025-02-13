@@ -107,6 +107,10 @@ h3 {
 }
 
 /* Content */
+section {
+    margin: 1.5em 0;
+}
+
 p, li {
     font-size: 1em;
     line-height: 1.5;
@@ -140,6 +144,7 @@ p strong {
     font-weight: 500;
     margin-top: 1.2em;
     transition: all 0.2s ease;
+    text-decoration: none;
 }
 
 .download-btn:hover {
@@ -151,12 +156,6 @@ p strong {
 .download-btn i {
     margin-right: 0.6em;
     color: white !important;
-}
-
-/* Sections */
-section {
-    margin: 1.5em 0;
-    text-align: left;
 }
 
 /* Loading state */
@@ -194,7 +193,7 @@ section {
     }
 
     h1 {
-        font-size: 2.5em;
+        font-size: 2em;
     }
 }
 
@@ -202,10 +201,6 @@ section {
     #cv-content {
         padding: 1em;
         margin: 0.5em;
-    }
-    
-    h1 {
-        font-size: 2em;
     }
 }
 
@@ -239,5 +234,82 @@ section {
     h2, h3 {
         page-break-after: avoid;
     }
+}
+
+/* Navigation */
+.main-nav {
+    background: white;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    padding: 1em 0;
+    margin-bottom: 2em;
+}
+
+.nav-content {
+    max-width: 42em;
+    margin: 0 auto;
+    padding: 0 3em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand {
+    font-family: "Helvetica Neue", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 600;
+    color: #111;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.nav-links a {
+    color: #666;
+    text-decoration: none;
+    margin-left: 1.5em;
+    font-size: 0.9em;
+    padding: 0.3em 0;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #1a73e8;
+    border-bottom-color: #1a73e8;
+}
+
+/* About section */
+.about-section {
+    max-width: 42em;
+    margin: 2.5em auto;
+    padding: 0 3em;
+}
+
+.about-content {
+    margin-top: 2em;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+.view-cv-btn {
+    display: inline-flex;
+    align-items: center;
+    background: #1a73e8;
+    color: white !important;
+    padding: 0.5em 1em;
+    border-radius: 6px;
+    font-size: 0.9em;
+    font-weight: 500;
+    margin-top: 1.5em;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.view-cv-btn:hover {
+    background: #155ab9;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.view-cv-btn i {
+    margin-right: 0.6em;
 }
   

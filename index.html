@@ -15,20 +15,107 @@
         gtag('js', new Date());
         gtag('config', 'G-377WCB5SH9');
     </script>
+    <script>
+        // Share language preference across pages
+        const currentLang = localStorage.getItem('preferred-language') || 'en';
+        document.documentElement.lang = currentLang;
+    </script>
+    <!-- Correct script tag with type="module" -->
 </head>
 <body>
     <nav class="main-nav">
         <div class="nav-content">
-            <a href="/" class="nav-brand">Djamal Eddine</a>
+            <a href="/" class="nav-brand"></a>
             <div class="nav-links">
-                <a href="/" class="active">About</a>
-                <a href="/cv">CV</a>
+                <a href="/" class="active" data-en="About" data-fr="À propos">About</a>
+                <a href="/cv" data-en="CV" data-fr="CV">CV</a>
+                <div class="language-switcher">
+                    <button class="lang-btn" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="fr">FR</button>
+                    <button class="lang-btn" data-lang="ar">ع</button>
+                </div>
             </div>
         </div>
     </nav>
 
     <div id="content" class="loading">Loading...</div>
 
-    <script src="/assets/js/main.js"></script>
+    <!-- Test file access -->
+    <script>
+    async function testFileAccess() {
+        const files = ['cv.en.json', 'cv.fr.json'];
+        console.log('Testing file access...');
+        for (const file of files) {
+            try {
+                const response = await fetch(`/data/${file}`);
+                console.log(`Testing ${file}:`, {
+                    exists: response.ok,
+                    status: response.status,
+                    type: response.headers.get('content-type')
+                });
+            } catch (error) {
+                console.error(`Error accessing ${file}:`, error);
+            }
+        }
+    }
+    testFileAccess();
+    </script>
+
+    <div class="chat-widget">
+        <div class="chat-header">
+            <span>Ask me anything about my experience</span>
+            <button class="chat-toggle">
+                <i class="fas fa-comments"></i>
+            </button>
+        </div>
+        <div class="chat-body">
+            <div class="chat-messages" id="chat-messages">
+                <div class="message system">
+                    Hi! I can help answer questions about Djamal's experience and skills.
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="user-input" placeholder="Ask a question...">
+                <button id="send-message">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    let translations = null;
+    
+    async function updateUILanguage(lang) {
+        if (!translations) {
+            const response = await fetch('/data/translations.json');
+            translations = await response.json();
+        }
+        document.querySelectorAll('[data-en][data-fr]').forEach(el => {
+            el.textContent = el.dataset[lang];
+        });
+        document.documentElement.lang = lang;
+    }
+
+    // Language switcher
+    document.addEventListener('DOMContentLoaded', async () => {
+        await updateUILanguage(currentLang);
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.lang === currentLang);
+            btn.addEventListener('click', () => {
+                if (btn.dataset.lang !== currentLang) {
+                    localStorage.setItem('preferred-language', btn.dataset.lang);
+                    window.location.reload();
+                }
+            });
+        });
+    });
+    </script>
+
+<script type="module" src="assets/js/main.js"></script>
+    <script src="/assets/js/chat.js"></script>
+
+    <!-- Debug file access -->
+    <script src="/assets/js/check-files.js"></script>
 </body>
 </html>

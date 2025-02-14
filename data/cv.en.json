@@ -7,6 +7,7 @@
     "email": "d.ouikene@gmail.com",
     "url": "https://douikene.github.io/",
     "github": "https://github.com/douikene",
+    "linkedin": "https://www.linkedin.com/in/douikene/",
     "picture": "/assets/images/profile.png"
   },
   "professionalSummary": "Dynamic and results-driven IT leader with over 17 years of global experience. Transitioning from software development and OSS/BSS systems integration to strategic leadership roles, I have cultivated a diverse, international perspective. Currently serving as Director at NTT Ltd., managing global teams across software development and IT operations. Known for fostering high-performing, cross-functional teams and driving innovation through technology alignment with business goals. Skilled in system and service design, driving DevOps transformations, leading architecture transitions to microservices with API-first approaches, and optimizing billing systems for business growth. Proven ability to scale engineering teams effectively, lead data-driven projects, and support enterprise-level decision-making in complex environments. Currently exploring the transformative potential of Artificial Intelligence (AI) in enhancing business operations and decision-making, with a keen interest in leveraging AI-driven technologies in future projects.",
@@ -19,21 +20,21 @@
           "title": "Director, Software Development & Production",
           "period": "Aug 2022 – Present",
           "responsibilities": [
-            "Led transformation from monolithic ERP to microservice architecture with API-first approach.",
-            "Managed teams across Singapore, India, France, Canada, Australia, and South Africa.",
-            "Introduced SRE team, customized Agile processes, and productized APIs for phone number ordering.",
-            "Provided technical leadership in diverse technology environments, overseeing projects involving Java, .NET, and modern API-first architectures.",
-            "Led cross-functional software engineering teams in the design and delivery of scalable, cloud-based solutions."
+            "Led transformation from monolithic ERP to microservice architecture with API-first approach",
+            "Managed teams across Singapore, India, France, Canada, Australia, and South Africa",
+            "Introduced SRE team, customized Agile processes",
+            "Provided technical leadership in diverse technology environments",
+            "Led cross-functional software engineering teams in cloud solutions"
           ]
         },
         {
           "title": "Director, Software Development & Support",
           "period": "Oct 2019 – Jul 2022",
           "responsibilities": [
-            "Managed development teams in India and support teams in Singapore.",
-            "Enhanced billing systems and drove continuous process improvements.",
-            "Spearheaded the delivery of a customer-facing portal, improving user engagement by 25% through an API-first architecture and seamless service integration.",
-            "Drove Agile transformation and implemented data-centric systems to support enterprise-level decision-making."
+            "Managed development teams in India and support teams in Singapore",
+            "Enhanced billing systems and drove continuous process improvements",
+            "Spearheaded customer-facing portal delivery",
+            "Drove Agile transformation"
           ]
         }
       ]
@@ -116,25 +117,15 @@
   ],
   "education": [
     {
-      "degree": "DESS in Networks & Telecommunications",
-      "institution": "University of Paris-Sud XI",
+      "degree": "Master's in Computer Science",
+      "institution": "University Paris-Sud",
       "year": "2008"
-    },
-    {
-      "degree": "Engineering Degree in Computer Science",
-      "institution": "INI, Algeria",
-      "year": "2007"
     }
   ],
   "certifications": [
-    "eTOM (Business Process Framework)",
-    "SID",
-    "TAM",
-    "DevOps Foundations",
-    "Azure DevOps",
-    "OWASP Top 10",
-    "Etom Frameworx Overview",
-    "NTT Leadership Accelerator Series (2024)"
+    "AWS Certified Solutions Architect",
+    "ITIL v4 Foundation",
+    "Scrum Master"
   ],
   "skills": {
     "software": ["SoapUI", "LoadUI", "Enterprise Architect", "Wireshark"],
@@ -145,24 +136,20 @@
   },
   "languages": [
     {
-      "language": "Kabyle",
-      "level": "Native"
-    },
-    {
-      "language": "French",
-      "level": "Bilingual"
-    },
-    {
       "language": "English",
       "level": "Professional"
     },
     {
+      "language": "French",
+      "level": "Native"
+    },
+    {
       "language": "Arabic",
-      "level": "Bilingual"
+      "level": "Native"
     }
   ],
   "interests": [
-    "Marathon enthusiast, participating in endurance events to foster resilience and focus.",
-    "Global traveler with a passion for exploring cultural leadership practices and diverse business environments."
+    "Marathon enthusiast, participating in endurance events to foster resilience and focus",
+    "Global traveler with a passion for exploring cultural leadership practices and diverse business environments"
   ]
 } 

@@ -1,0 +1,80 @@
+{
+  "personalInfo": {
+    "name": "جمال الدين ويكن",
+    "title": "مدير تطوير البرمجيات وعمليات تكنولوجيا المعلومات",
+    "location": "سنغافورة",
+    "phone": "+65 8147 8720",
+    "email": "d.ouikene@gmail.com",
+    "url": "https://douikene.github.io/",
+    "github": "https://github.com/douikene",
+    "linkedin": "https://www.linkedin.com/in/douikene/",
+    "picture": "/assets/images/profile.png"
+  },
+  "professionalSummary": "قائد تكنولوجيا المعلومات ديناميكي وموجه نحو النتائج مع أكثر من 17 عامًا من الخبرة العالمية. انتقلت من تطوير البرمجيات وتكامل أنظمة OSS/BSS إلى أدوار القيادة الاستراتيجية، حيث طورت منظورًا دوليًا متنوعًا. أعمل حاليًا كمدير في NTT Ltd.، وأدير فرق عالمية في تطوير البرمجيات وعمليات تكنولوجيا المعلومات.",
+  "experience": [
+    {
+      "company": "NTT Ltd.",
+      "location": "سنغافورة",
+      "roles": [
+        {
+          "title": "مدير تطوير البرمجيات والإنتاج",
+          "period": "أغسطس 2022 - الحاضر",
+          "responsibilities": [
+            "قيادة التحول من ERP أحادي إلى بنية الخدمات المصغرة مع نهج API-first",
+            "إدارة فرق في سنغافورة والهند وفرنسا وكندا وأستراليا وجنوب أفريقيا",
+            "تقديم فريق SRE، تخصيص عمليات Agile",
+            "توفير القيادة التقنية في بيئات تكنولوجية متنوعة",
+            "قيادة فرق هندسة البرمجيات متعددة التخصصات في حلول السحابة"
+          ]
+        },
+        {
+          "title": "مدير تطوير البرمجيات والدعم",
+          "period": "أكتوبر 2019 - يوليو 2022",
+          "responsibilities": [
+            "إدارة فرق التطوير في الهند وفرق الدعم في سنغافورة",
+            "تحسين أنظمة الفوترة وقيادة التحسينات المستمرة للعمليات",
+            "قيادة تطوير بوابة العملاء",
+            "قيادة التحول إلى Agile"
+          ]
+        }
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "ماجستير في علوم الحاسوب",
+      "institution": "جامعة باريس-سود",
+      "year": "2008"
+    }
+  ],
+  "certifications": [
+    "AWS Certified Solutions Architect",
+    "ITIL v4 Foundation",
+    "Scrum Master"
+  ],
+  "skills": {
+    "software": ["SoapUI", "LoadUI", "Enterprise Architect", "Wireshark"],
+    "devops": ["SRE", "Agile", "Jenkins", "Git", "Docker", "Kubernetes"],
+    "databases": ["SQL Server", "MySQL", "Oracle"],
+    "programming": ["Java", "Perl", "JavaScript", "C/C++", "HTML", "Python"],
+    "cloudNetworking": ["AWS", "IP", "TCP", "UDP", "MPLS", "GSM", "LTE"]
+  },
+  "languages": [
+    {
+      "language": "الإنجليزية",
+      "level": "مهني"
+    },
+    {
+      "language": "الفرنسية",
+      "level": "لغة أم"
+    },
+    {
+      "language": "العربية",
+      "level": "لغة أم"
+    }
+  ],
+  "interests": [
+    "متحمس للماراثون، المشاركة في فعاليات التحمل لتعزيز المرونة والتركيز",
+    "مسافر عالمي مع شغف لاستكشاف ممارسات القيادة الثقافية وبيئات الأعمال المتنوعة"
+  ]
+} 

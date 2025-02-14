@@ -6,29 +6,43 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV - Djamal Eddine Ouikene</title>
-    <!-- Google tag -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-377WCB5SH9"></script>
+    <title id="page-title">CV - Djamal Eddine Ouikene</title>
+    
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-377WCB5SH9');
+        // Get initial language
+        const currentLang = localStorage.getItem('preferred-language') || 'en';
+        document.documentElement.lang = currentLang;
     </script>
+    
+    <!-- Load CV script -->
+    <script type="module" src="/assets/js/cv.js"></script>
 </head>
 <body>
     <nav class="main-nav">
         <div class="nav-content">
-            <a href="/" class="nav-brand">Djamal Eddine</a>
+            <a href="/" class="nav-brand"></a>
             <div class="nav-links">
-                <a href="/">About</a>
-                <a href="/cv" class="active">CV</a>
+                <a href="/" data-en="About" data-fr="À propos">About</a>
+                <a href="/cv" class="active" data-en="CV" data-fr="CV">CV</a>
+                <div class="language-switcher">
+                    <button class="lang-btn" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="fr">FR</button>
+                    <button class="lang-btn" data-lang="ar">ع</button>
+                </div>
             </div>
         </div>
     </nav>
 
     <div id="cv-content" class="loading">Loading...</div>
 
-    <script src="/assets/js/cv.js"></script>
+    <!-- Error handler -->
+    <script>
+    window.addEventListener('unhandledrejection', function(event) {
+        console.error('Unhandled promise rejection:', event.reason);
+        document.getElementById('cv-content').innerHTML = 
+            `Error loading CV: ${event.reason.message}<br>
+            <small>Please try refreshing the page</small>`;
+    });
+    </script>
 </body>
 </html> 

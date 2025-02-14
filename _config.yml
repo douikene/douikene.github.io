@@ -6,3 +6,41 @@ url: "https://douikene.github.io"
 # Build settings
 markdown: kramdown
 # Remove or comment out theme line if it exists
+
+# Exclude directories and/or files from the conversion
+exclude:
+  - backend/node_modules
+  - backend/.env
+  - backend/package-lock.json
+  - node_modules
+  - vendor
+  - .git
+  - .github
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+
+# Add to your _config.yml
+include:
+  - data
+  - "data/*.json"
+  - assets
+  - assets/js
+  - assets/css
+  - assets/images
+
+# Ensure data directory is copied to _site
+keep_files:
+  - data
+  - assets
+
+# Add explicit paths
+defaults:
+  - scope:
+      path: "data"
+    values:
+      layout: null
+  - scope:
+      path: "assets"
+    values:
+      layout: null

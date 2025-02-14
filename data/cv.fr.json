@@ -1,0 +1,80 @@
+{
+  "personalInfo": {
+    "name": "Djamal Eddine Ouikene",
+    "title": "Directeur, Développement Logiciel & Opérations IT",
+    "location": "Singapour",
+    "phone": "+65 8147 8720",
+    "email": "d.ouikene@gmail.com",
+    "url": "https://douikene.github.io/",
+    "github": "https://github.com/douikene",
+    "linkedin": "https://www.linkedin.com/in/douikene/",
+    "picture": "/assets/images/profile.png"
+  },
+  "professionalSummary": "Leader IT dynamique et orienté résultats avec plus de 17 ans d'expérience internationale. Passant du développement logiciel et de l'intégration des systèmes OSS/BSS à des rôles de leadership stratégique, j'ai développé une perspective internationale diversifiée. Actuellement Directeur chez NTT Ltd., gérant des équipes mondiales en développement logiciel et opérations IT.",
+  "experience": [
+    {
+      "company": "NTT Ltd.",
+      "location": "Singapour",
+      "roles": [
+        {
+          "title": "Directeur, Développement Logiciel & Production",
+          "period": "Août 2022 – Présent",
+          "responsibilities": [
+            "Direction de la transformation d'un ERP monolithique vers une architecture microservices",
+            "Gestion d'équipes à Singapour, Inde, France, Canada, Australie et Afrique du Sud",
+            "Introduction d'une équipe SRE, personnalisation des processus Agile",
+            "Leadership technique dans des environnements technologiques variés",
+            "Direction d'équipes d'ingénierie logicielle dans les solutions cloud"
+          ]
+        },
+        {
+          "title": "Directeur, Développement Logiciel & Support",
+          "period": "Oct 2019 – Juil 2022",
+          "responsibilities": [
+            "Gestion des équipes de développement en Inde et des équipes de support à Singapour",
+            "Amélioration des systèmes de facturation et optimisation continue des processus",
+            "Direction du développement d'un portail client",
+            "Pilotage de la transformation Agile"
+          ]
+        }
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Master en Informatique",
+      "institution": "Université Paris-Sud",
+      "year": "2008"
+    }
+  ],
+  "certifications": [
+    "AWS Certified Solutions Architect",
+    "ITIL v4 Foundation",
+    "Scrum Master"
+  ],
+  "skills": {
+    "software": ["SoapUI", "LoadUI", "Enterprise Architect", "Wireshark"],
+    "devops": ["SRE", "Agile", "Jenkins", "Git", "Docker", "Kubernetes"],
+    "databases": ["SQL Server", "MySQL", "Oracle"],
+    "programming": ["Java", "Perl", "JavaScript", "C/C++", "HTML", "Python"],
+    "cloudNetworking": ["AWS", "IP", "TCP", "UDP", "MPLS", "GSM", "LTE"]
+  },
+  "languages": [
+    {
+      "language": "Français",
+      "level": "Natif"
+    },
+    {
+      "language": "Anglais",
+      "level": "Professionnel"
+    },
+    {
+      "language": "Arabe",
+      "level": "Natif"
+    }
+  ],
+  "interests": [
+    "Passionné de marathon, participant à des événements d'endurance pour développer la résilience",
+    "Voyageur international avec un intérêt pour l'exploration des pratiques de leadership culturel"
+  ]
+} 

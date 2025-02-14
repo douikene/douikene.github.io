@@ -1,0 +1,60 @@
+{
+  "loading": {
+    "en": "Loading...",
+    "fr": "Chargement...",
+    "ar": "جاري التحميل..."
+  },
+  "error": {
+    "en": "Error loading CV data",
+    "fr": "Erreur lors du chargement du CV",
+    "ar": "خطأ في تحميل السيرة الذاتية"
+  },
+  "downloadCV": {
+    "en": "Download CV",
+    "fr": "Télécharger le CV",
+    "ar": "تحميل السيرة الذاتية"
+  },
+  "sections": {
+    "en": {
+      "summary": "Professional Summary",
+      "experience": "Professional Experience",
+      "education": "Education & Certifications",
+      "skills": "Technical Skills",
+      "languages": "Languages",
+      "interests": "Personal Interests"
+    },
+    "fr": {
+      "summary": "Résumé Professionnel",
+      "experience": "Expérience Professionnelle",
+      "education": "Formation & Certifications",
+      "skills": "Compétences Techniques",
+      "languages": "Langues",
+      "interests": "Centres d'Intérêt"
+    },
+    "ar": {
+      "summary": "ملخص مهني",
+      "experience": "الخبرة المهنية",
+      "education": "التعليم والشهادات",
+      "skills": "المهارات التقنية",
+      "languages": "اللغات",
+      "interests": "الاهتمامات الشخصية"
+    }
+  },
+  "nav": {
+    "en": {
+      "about": "About",
+      "cv": "CV",
+      "viewCV": "View Full CV"
+    },
+    "fr": {
+      "about": "À propos",
+      "cv": "CV",
+      "viewCV": "Voir le CV"
+    },
+    "ar": {
+      "about": "نبذة",
+      "cv": "السيرة الذاتية",
+      "viewCV": "عرض السيرة الذاتية"
+    }
+  }
+} 

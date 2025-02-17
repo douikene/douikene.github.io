@@ -2,17 +2,20 @@
   "loading": {
     "en": "Loading...",
     "fr": "Chargement...",
-    "ar": "جاري التحميل..."
+    "ar": "جاري التحميل...",
+    "ber": "ⴰⵙⴰⵍⵉ..."
   },
   "error": {
     "en": "Error loading CV data",
     "fr": "Erreur lors du chargement du CV",
-    "ar": "خطأ في تحميل السيرة الذاتية"
+    "ar": "خطأ في تحميل السيرة الذاتية",
+    "ber": "ⵜⵓⵛⴹⴰ ⴷⴻⴳ ⵓⵙⴰⵍⵉ ⵏ ⵢⵉⵙⴻⴼⴽⴰ CV"
   },
   "downloadCV": {
     "en": "Download CV",
     "fr": "Télécharger le CV",
-    "ar": "تحميل السيرة الذاتية"
+    "ar": "تحميل السيرة الذاتية",
+    "ber": "ⵙⵉⴷⴻⵔ CV"
   },
   "sections": {
     "en": {
@@ -38,6 +41,14 @@
       "skills": "المهارات التقنية",
       "languages": "اللغات",
       "interests": "الاهتمامات الشخصية"
+    },
+    "ber": {
+      "summary": "ⴰⴳⵣⵓⵍ ⴰⵎⴰⵙⵙⵏⴰⵏ",
+      "experience": "ⵜⴰⵔⵎⵉⵜ ⵜⴰⵎⴰⵙⵙⵏⴰⵏⵜ",
+      "education": "ⵜⴰⵖⵓⵔⵉ ⴷ ⵜⵉⵙⴻⵍⴽⵉⵏ",
+      "skills": "ⵜⵉⵡⴻⵣⵣⴰ ⵜⵉⵜⵉⴽⵏⵉⴽⵉⵢⵉⵏ",
+      "languages": "ⵜⵓⵜⵍⴰⵢⵉⵏ",
+      "interests": "ⴰⵢⴻⵏ ⵉ ⵢⵉ-ⵛⴻⵖⴱⴻⵏ"
     }
   },
   "nav": {
@@ -55,6 +66,11 @@
       "about": "نبذة",
       "cv": "السيرة الذاتية",
       "viewCV": "عرض السيرة الذاتية"
+    },
+    "ber": {
+      "about": "ⴼⴻⵍⵍ-ⵉ",
+      "cv": "CV",
+      "viewCV": "ⵡⴰⵍⵉ CV ⵓⵎⵎⵉⴷ"
     }
   }
 } 

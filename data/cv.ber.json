@@ -1,0 +1,74 @@
+{
+  "personalInfo": {
+    "name": "ⵊⴰⵎⴰⵍ ⴷⴷⵉⵏ ⵡⵉⴽⴻⵏ",
+    "title": "ⴰⵏⴻⵎⵀⴰⵍ ⵏ ⵜⵏⴻⴼⵍⵉⵜ ⴷ ⵜⵉⵎⵀⴰⵍⵉⵏ ⵏ ⵜⴻⵜⵉⴽⵏⵓⵍⵓⵊⵉⵜ",
+    "location": "ⵙⵉⵏⴳⴰⴼⵓⵔ",
+    "phone": "+65 8147 8720",
+    "email": "d.ouikene@gmail.com",
+    "url": "https://douikene.github.io/",
+    "github": "https://github.com/douikene",
+    "linkedin": "https://www.linkedin.com/in/douikene/",
+    "picture": "/assets/images/profile.png"
+  },
+  "professionalSummary": "ⴰⵇⴻⵔⵔⵓ ⵏ ⵜⴻⵜⵉⴽⵏⵓⵍⵓⵊⵉⵜ ⵢⴻⵜⵜⵡⴰⵙⵙⵏⴻⵏ ⵙ ⵜⵣⴻⵎⵎⴰⵔ-ⵉⵙ ⴷ ⵓⵙⴻⴷⴷⵓ ⵏ ⵢⵉⵙⵡⵉⵢⴻⵏ, ⵙ ⵡⵓⴳⴰⵔ ⵏ 17 ⵏ ⵢⵉⵙⴻⴳⴳⴰⵙⴻⵏ ⵏ ⵜⴰⵔⵎⵉⵜ ⵜⴰⴳⵔⴰⵖⵍⴰⵏⵜ. ⵙⴻⴳ ⵜⵏⴻⴼⵍⵉⵜ ⵏ ⵢⵉⵙⴻⵖⵣⴰⵏⴻⵏ ⴷ ⵓⵙⴻⵇⴷⴻⵛ ⵏ ⵢⵉⵏⴰⴳⵔⴰⵡⴻⵏ OSS/BSS ⵖⴻⵔ ⵜⵖⵓⵍⴰ ⵏ ⵜⵏⴻⵎⵀⵍⴰ ⵜⴰⵖⴻⵍⵏⴰⵡⵜ, ⵔⵏⵉⵖ-ⴷ ⵜⴰⵎⵓⵖⵍⵉ ⵜⴰⴳⵔⴰⵖⵍⴰⵏⵜ ⵢⴻⵎⴳⴰⵔⴰⴷⴻⵏ. ⴰⵙⵙ-ⴰ, ⴷ ⴰⵏⴻⵎⵀⴰⵍ ⴷⴻⴳ NTT Ltd., ⵜⵜⵙⴻⵢⵢⵉⵔⴻⵖ ⵜⴰⵔⴱⴰⵄⵉⵏ ⵜⵉⴳⵔⴰⵖⵍⴰⵏⵉⵏ ⴷⴻⴳ ⵜⵏⴻⴼⵍⵉⵜ ⵏ ⵢⵉⵙⴻⵖⵣⴰⵏⴻⵏ ⴷ ⵜⵉⵎⵀⴰⵍⵉⵏ ⵏ ⵜⴻⵜⵉⴽⵏⵓⵍⵓⵊⵉⵜ.",
+  "experience": [
+    {
+      "company": "NTT Ltd.",
+      "location": "ⵙⵉⵏⴳⴰⴼⵓⵔ",
+      "roles": [
+        {
+          "title": "ⴰⵏⴻⵎⵀⴰⵍ ⵏ ⵜⵏⴻⴼⵍⵉⵜ ⴷ ⵓⵙⵓⴼⴼⴻⵖ",
+          "period": "ⵖⵓⵛⵜ 2022 - ⵜⵓⵔⴰ",
+          "responsibilities": [
+            "ⴰⵇⴻⴷⴷⴻⵛ ⵏ ⵓⴱⴻⴷⴷⴻⵍ ⵙⴻⴳ ERP ⴰⵙⵓⴼ ⵖⴻⵔ ⵜⴻⴱⵏⴰⵢⵜ ⵏ ⵜⵖⴰⵡⵙⵉⵡⵉⵏ ⵜⵉⵎⴻⵛⵟⴰⵃ ⵙ ⵡⵓⴷⴻⵎ API-first",
+            "ⴰⵙⴻⴷⴷⵓ ⵏ ⵜⴻⵔⴱⴰⵄⵉⵏ ⴷⴻⴳ ⵙⵉⵏⴳⴰⴼⵓⵔ, ⵀⴻⵏⴷ, ⴼⵔⴰⵏⵙⴰ, ⴽⴰⵏⴰⴷⴰ, ⵓⵙⵜⵔⴰⵍⵢⴰ ⴷ ⵜⴰⴼⵔⵉⵇⵜ ⵏ ⵡⴻⵏⵥⵓⵍ",
+            "ⴰⵙⴻⴽⵛⴻⵎ ⵏ ⵜⴻⵔⴱⴻⵄⵜ SRE, ⴰⵙⴰⴳⴻⵏ ⵏ ⵜⴻⵎⵀⴰⵍⵉⵏ Agile",
+            "ⵜⵉⴽⴽⵉⵡⵉⵏ ⵜⵉⵜⵉⴽⵏⵉⴽⵉⵢⵉⵏ ⴷⴻⴳ ⵡⴰⵏⴰⵡⴻⵏ ⵏ ⵜⴻⵜⵉⴽⵏⵓⵍⵓⵊⵉⵜ",
+            "ⴰⵇⴻⴷⴷⴻⵛ ⵏ ⵜⴻⵔⴱⴻⵄⵜ ⵏ ⵢⵉⵏⴻⴼⵍⴰⵢⴻⵏ ⴷⴻⴳ ⵢⵉⴼⴻⵛⴽⴰ ⵏ ⵓⵙⵉⴳⵏⴰ"
+          ]
+        }
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "ⴰⵙⴻⵍⴽⵉⵎ ⵏ ⵜⵓⵙⵙⵏⴰ ⴷⴻⴳ ⵜⵙⴻⵏⵙⴻⵍⴽⵉⵎⵜ",
+      "institution": "ⵜⴰⵙⴷⴰⵡⵉⵜ ⵏ ⴱⴰⵔⵉⵙ-ⵙⵓⴷ",
+      "year": "2008"
+    }
+  ],
+  "certifications": [
+    "AWS Certified Solutions Architect",
+    "ITIL v4 Foundation",
+    "Scrum Master"
+  ],
+  "skills": {
+    "software": ["SoapUI", "LoadUI", "Enterprise Architect", "Wireshark"],
+    "devops": ["SRE", "Agile", "Jenkins", "Git", "Docker", "Kubernetes"],
+    "databases": ["SQL Server", "MySQL", "Oracle"],
+    "programming": ["Java", "Perl", "JavaScript", "C/C++", "HTML", "Python"],
+    "cloudNetworking": ["AWS", "IP", "TCP", "UDP", "MPLS", "GSM", "LTE"]
+  },
+  "languages": [
+    {
+      "language": "ⵜⴰⴳⵍⵉⵣⵉⵜ",
+      "level": "ⴰⵎⴰⵙⵙⵏⴰⵏ"
+    },
+    {
+      "language": "ⵜⴰⴼⵔⴰⵏⵙⵉⵙⵜ",
+      "level": "ⴰⵎⴰⵙⵙⵏⴰⵏ"
+    },
+    {
+      "language": "ⵜⴰⵄⵔⴰⴱⵜ",
+      "level": "ⵜⵓⵜⵍⴰⵢⵜ ⵜⴰⵢⴻⵎⵎⴰⵜ"
+    },
+    {
+      "language": "ⵜⴰⵎⴰⵣⵉⵖⵜ",
+      "level": "ⵜⵓⵜⵍⴰⵢⵜ ⵜⴰⵢⴻⵎⵎⴰⵜ"
+    }
+  ],
+  "interests": [
+    "ⵃⴻⵎⵎⵍⴻⵖ ⴰⵎⴰⵔⴰⵜⵓⵏ, ⵜⵜⴻⴽⴽⴰⵖ ⴷⴻⴳ ⵜⴻⵎⵍⵉⵍⵉⵏ ⵏ ⵜⵣⴻⵎⵎⴰⵔ ⵉ ⵡⴰⴽⴽⴻⵏ ⴰⴷ ⵙⵏⴻⵔⵏⵉⵢⴻⵖ ⵜⴰⵣⵎⴻⵔⵜ ⴷ ⵓⴼⵔⴰⵏ",
+    "ⵉⵏⵉⴳ ⴰⵎⴰⴹⵍⴰⵏ ⵙ ⵛⵛⴻⵖⴼ ⵉ ⵓⵙⴻⵍⵎⴻⴷ ⵏ ⵜⵏⴻⵎⵀⵍⴰ ⵜⴰⴷⴻⵍⵙⴰⵏⵜ ⴷ ⵡⴰⵏⴰⵡⴻⵏ ⵏ ⵜⵡⵓⵔⵉ"
+  ]
+} 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -11,11 +12,12 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-377WCB5SH9"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'G-377WCB5SH9');
     </script>
 </head>
+
 <body>
     <div id="cv-content" class="loading">Loading...</div>
 
@@ -36,7 +38,7 @@
 
         function renderCV(data) {
             const content = document.getElementById('cv-content');
-            
+
             content.innerHTML = `
                 <div class="profile-header">
                     <div class="profile-info">
@@ -101,58 +103,15 @@
                         ${data.interests.map(interest => `<li>${interest}</li>`).join('')}
                     </ul>
                 </section>
-                                <section>
-                    <h2>My CV Copilot</h2>
-                    <p style="color:#6b7280;font-size:13px;margin-top:-6px;">
-                        Ask me questions about my experience (demo – OpenAI not connected yet).
-                    </p>
-
-                    <div id="cv-copilot"
-                         style="border:1px solid #e5e7eb;border-radius:14px;padding:14px 14px 10px 14px;">
-                        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
-                            <div style="font-weight:600;">Chat</div>
-                            <span id="cvStatus" style="font-size:12px;color:#6b7280;">Checking…</span>
-                        </div>
-
-                        <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:8px;">
-                            <button class="cvchip" data-q="Summarize your experience in 5 bullets.">Summary</button>
-                            <button class="cvchip" data-q="What are your strongest skills for Platform Engineering & Operations?">Platform</button>
-                            <button class="cvchip" data-q="Describe a major production reliability challenge you handled.">SRE</button>
-                            <button class="cvchip" data-q="What would you focus on in your first 90 days?">First 90 days</button>
-                        </div>
-
-                        <div id="cvChatBox"
-                             style="margin-top:12px;height:320px;overflow:auto;border:1px solid #e5e7eb;border-radius:12px;padding:10px;background:#fafafa;">
-                        </div>
-
-                        <div style="margin-top:10px;display:flex;gap:8px;">
-                            <input id="cvInput" type="text" placeholder="Type your question…"
-                                   style="flex:1;padding:10px 12px;border:1px solid #d1d5db;border-radius:10px;outline:none;" />
-                            <button id="cvSend"
-                                    style="padding:10px 14px;border:1px solid #111827;border-radius:10px;background:#111827;color:#fff;cursor:pointer;">
-                                Send
-                            </button>
-                        </div>
-
-                        <div style="margin-top:8px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;">
-                            <button id="cvClear" style="font-size:12px;border:none;background:transparent;color:#6b7280;cursor:pointer;">
-                                Clear chat
-                            </button>
-                            <div style="font-size:12px;color:#6b7280;">
-                                Powered by Fly backend
-                            </div>
-                        </div>
-                    </div>
-                </section>
 
             `;
-            
+
             initCVCopilot();
 
             // Add this after content is rendered
             const downloadBtn = document.querySelector('.download-btn');
             if (downloadBtn) {
-                downloadBtn.onclick = function(e) {
+                downloadBtn.onclick = function (e) {
                     e.preventDefault();
                     printCV();
                 };
@@ -280,7 +239,7 @@
             try {
                 const saved = localStorage.getItem(storageKey);
                 if (saved) chat = JSON.parse(saved) || [];
-            } catch {}
+            } catch { }
 
             if (chat.length === 0) {
                 chat = [{ role: "assistant", text: "Hi — I’m My CV Copilot. Ask me anything about my experience." }];
@@ -321,5 +280,379 @@
         // Load the CV when the page loads
         window.addEventListener('load', loadCV);
     </script>
+    <style>
+  /* Floating button */
+  #cvcopilot-fab {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    width: 56px;
+    height: 56px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    z-index: 9999;
+    background: #111827;
+    color: #fff;
+    box-shadow: 0 10px 25px rgba(0,0,0,.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #cvcopilot-fab:hover { transform: translateY(-1px); }
+
+  /* Panel */
+  #cvcopilot-panel {
+    position: fixed;
+    right: 18px;
+    bottom: 86px;
+    width: 360px;
+    max-width: calc(100vw - 36px);
+    height: 520px;
+    max-height: calc(100vh - 110px);
+    border-radius: 16px;
+    border: 1px solid rgba(0,0,0,.08);
+    background: #fff;
+    box-shadow: 0 18px 50px rgba(0,0,0,.22);
+    z-index: 9999;
+    overflow: hidden;
+
+    /* hidden by default */
+    opacity: 0;
+    transform: translateY(8px);
+    pointer-events: none;
+    transition: opacity .15s ease, transform .15s ease;
+  }
+  #cvcopilot-panel.open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  /* Header */
+  .cvcopilot-header {
+    padding: 12px 12px 10px 12px;
+    background: #111827;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .cvcopilot-title {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .cvcopilot-title strong { font-size: 14px; line-height: 1.1; }
+  .cvcopilot-title span { font-size: 12px; color: rgba(255,255,255,.75); }
+
+  .cvcopilot-iconbtn {
+    border: 1px solid rgba(255,255,255,.25);
+    background: transparent;
+    color: #fff;
+    border-radius: 10px;
+    padding: 6px 8px;
+    cursor: pointer;
+    font-size: 12px;
+  }
+
+  /* Chips */
+  .cvcopilot-chips {
+    padding: 10px 10px 0 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .cvcopilot-chip {
+    font-size: 12px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid #e5e7eb;
+    background: #fff;
+    cursor: pointer;
+  }
+  .cvcopilot-chip:hover { border-color: #9ca3af; }
+
+  /* Messages */
+  #cvcopilot-messages {
+    padding: 10px;
+    height: calc(520px - 52px - 44px - 54px); /* panel - header - chips - input area */
+    max-height: calc(100vh - 110px - 52px - 44px - 54px);
+    overflow: auto;
+    background: #fafafa;
+  }
+  .cvcopilot-row { display: flex; margin: 8px 0; }
+  .cvcopilot-row.user { justify-content: flex-end; }
+  .cvcopilot-bubble {
+    max-width: 88%;
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    background: #fff;
+    color: #111827;
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-size: 13.5px;
+    line-height: 1.35;
+  }
+  .cvcopilot-row.user .cvcopilot-bubble {
+    background: #111827;
+    color: #fff;
+    border-color: #111827;
+  }
+
+  /* Input area */
+  .cvcopilot-input {
+    padding: 10px;
+    display: flex;
+    gap: 8px;
+    border-top: 1px solid #e5e7eb;
+    background: #fff;
+  }
+  #cvcopilot-text {
+    flex: 1;
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    outline: none;
+    font-size: 14px;
+  }
+  #cvcopilot-send {
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px solid #111827;
+    background: #111827;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  #cvcopilot-send[disabled] {
+    opacity: .65;
+    cursor: not-allowed;
+  }
+
+  /* Small status dot */
+  .cvcopilot-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .cvcopilot-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: #9ca3af; /* default */
+  }
+</style>
+
+<!-- Floating Button -->
+<button id="cvcopilot-fab" aria-label="Open My CV Copilot">
+  💬
+</button>
+
+<!-- Panel -->
+<div id="cvcopilot-panel" aria-hidden="true">
+  <div class="cvcopilot-header">
+    <div class="cvcopilot-title">
+      <strong>My CV Copilot</strong>
+      <span class="cvcopilot-status">
+        <span id="cvcopilot-dot" class="cvcopilot-dot"></span>
+        <span id="cvcopilot-status-text">Checking…</span>
+      </span>
+    </div>
+    <div style="display:flex;gap:8px;">
+      <button id="cvcopilot-clear" class="cvcopilot-iconbtn">Clear</button>
+      <button id="cvcopilot-close" class="cvcopilot-iconbtn">Close</button>
+    </div>
+  </div>
+
+  <div class="cvcopilot-chips">
+    <button class="cvcopilot-chip" data-q="Summarize your experience in 5 bullets.">Summary</button>
+    <button class="cvcopilot-chip" data-q="What are your strongest skills for Platform Engineering & Operations?">Platform</button>
+    <button class="cvcopilot-chip" data-q="Describe a major production reliability challenge you handled.">SRE</button>
+    <button class="cvcopilot-chip" data-q="What would you focus on in your first 90 days?">First 90 days</button>
+  </div>
+
+  <div id="cvcopilot-messages"></div>
+
+  <div class="cvcopilot-input">
+    <input id="cvcopilot-text" type="text" placeholder="Ask a question…" />
+    <button id="cvcopilot-send">Send</button>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const API_BASE = "https://my-cv-copilot-api.fly.dev";
+    const storageKey = "mycvcopilot_fab_chat_v1";
+
+    const fab = document.getElementById("cvcopilot-fab");
+    const panel = document.getElementById("cvcopilot-panel");
+    const closeBtn = document.getElementById("cvcopilot-close");
+    const clearBtn = document.getElementById("cvcopilot-clear");
+    const msgBox = document.getElementById("cvcopilot-messages");
+    const input = document.getElementById("cvcopilot-text");
+    const sendBtn = document.getElementById("cvcopilot-send");
+    const dot = document.getElementById("cvcopilot-dot");
+    const statusText = document.getElementById("cvcopilot-status-text");
+
+    let chat = [];
+
+    function setStatus(state) {
+      // state: "online" | "offline" | "checking"
+      if (state === "online") {
+        dot.style.background = "#22c55e";
+        statusText.textContent = "Online";
+      } else if (state === "offline") {
+        dot.style.background = "#ef4444";
+        statusText.textContent = "Offline";
+      } else {
+        dot.style.background = "#9ca3af";
+        statusText.textContent = "Checking…";
+      }
+    }
+
+    function openPanel() {
+      panel.classList.add("open");
+      panel.setAttribute("aria-hidden", "false");
+      input.focus();
+    }
+
+    function closePanel() {
+      panel.classList.remove("open");
+      panel.setAttribute("aria-hidden", "true");
+    }
+
+    function scrollToBottom() {
+      msgBox.scrollTop = msgBox.scrollHeight;
+    }
+
+    function render() {
+      msgBox.innerHTML = "";
+      for (const m of chat) {
+        const row = document.createElement("div");
+        row.className = "cvcopilot-row " + (m.role === "user" ? "user" : "assistant");
+
+        const bubble = document.createElement("div");
+        bubble.className = "cvcopilot-bubble";
+        bubble.textContent = m.text;
+
+        row.appendChild(bubble);
+        msgBox.appendChild(row);
+      }
+      scrollToBottom();
+    }
+
+    function save() {
+      try { localStorage.setItem(storageKey, JSON.stringify(chat)); } catch {}
+    }
+
+    function add(role, text) {
+      chat.push({ role, text });
+      save();
+      render();
+    }
+
+    function load() {
+      try {
+        const saved = localStorage.getItem(storageKey);
+        if (saved) chat = JSON.parse(saved) || [];
+      } catch {}
+      if (!chat.length) {
+        chat = [{ role: "assistant", text: "Hi — I’m My CV Copilot. Ask me anything about my experience." }];
+      }
+      render();
+    }
+
+    async function healthCheck() {
+      setStatus("checking");
+      try {
+        const r = await fetch(`${API_BASE}/health`, { method: "GET" });
+        setStatus(r.ok ? "online" : "offline");
+      } catch {
+        setStatus("offline");
+      }
+    }
+
+    async function sendMessage(text) {
+      add("user", text);
+      sendBtn.disabled = true;
+      sendBtn.textContent = "…";
+
+      try {
+        const r = await fetch(`${API_BASE}/api/chat`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: text })
+        });
+
+        const data = await r.json().catch(() => ({}));
+        if (!r.ok) {
+          add("assistant", `Error: ${data.error || r.status}`);
+        } else {
+          add("assistant", data.answer ?? "No answer returned.");
+        }
+      } catch {
+        add("assistant", "Network error. Please try again.");
+      } finally {
+        sendBtn.disabled = false;
+        sendBtn.textContent = "Send";
+      }
+    }
+
+    // UI events
+    fab.addEventListener("click", () => {
+      if (panel.classList.contains("open")) closePanel();
+      else openPanel();
+    });
+
+    closeBtn.addEventListener("click", closePanel);
+
+    clearBtn.addEventListener("click", () => {
+      chat = [{ role: "assistant", text: "Chat cleared. Ask me anything about my experience." }];
+      save();
+      render();
+    });
+
+    sendBtn.addEventListener("click", () => {
+      const text = input.value.trim();
+      if (!text) return;
+      input.value = "";
+      sendMessage(text);
+    });
+
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        sendBtn.click();
+      }
+      if (e.key === "Escape") {
+        closePanel();
+      }
+    });
+
+    document.querySelectorAll(".cvcopilot-chip").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const q = btn.getAttribute("data-q");
+        input.value = q;
+        input.focus();
+      });
+    });
+
+    // Close on outside click
+    document.addEventListener("click", (e) => {
+      if (!panel.classList.contains("open")) return;
+      const within = panel.contains(e.target) || fab.contains(e.target);
+      if (!within) closePanel();
+    });
+
+    // Init
+    load();
+    healthCheck();
+  })();
+</script>
+
 </body>
+
 </html>

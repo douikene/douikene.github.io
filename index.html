@@ -101,7 +101,53 @@
                         ${data.interests.map(interest => `<li>${interest}</li>`).join('')}
                     </ul>
                 </section>
+                                <section>
+                    <h2>My CV Copilot</h2>
+                    <p style="color:#6b7280;font-size:13px;margin-top:-6px;">
+                        Ask me questions about my experience (demo – OpenAI not connected yet).
+                    </p>
+
+                    <div id="cv-copilot"
+                         style="border:1px solid #e5e7eb;border-radius:14px;padding:14px 14px 10px 14px;">
+                        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+                            <div style="font-weight:600;">Chat</div>
+                            <span id="cvStatus" style="font-size:12px;color:#6b7280;">Checking…</span>
+                        </div>
+
+                        <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:8px;">
+                            <button class="cvchip" data-q="Summarize your experience in 5 bullets.">Summary</button>
+                            <button class="cvchip" data-q="What are your strongest skills for Platform Engineering & Operations?">Platform</button>
+                            <button class="cvchip" data-q="Describe a major production reliability challenge you handled.">SRE</button>
+                            <button class="cvchip" data-q="What would you focus on in your first 90 days?">First 90 days</button>
+                        </div>
+
+                        <div id="cvChatBox"
+                             style="margin-top:12px;height:320px;overflow:auto;border:1px solid #e5e7eb;border-radius:12px;padding:10px;background:#fafafa;">
+                        </div>
+
+                        <div style="margin-top:10px;display:flex;gap:8px;">
+                            <input id="cvInput" type="text" placeholder="Type your question…"
+                                   style="flex:1;padding:10px 12px;border:1px solid #d1d5db;border-radius:10px;outline:none;" />
+                            <button id="cvSend"
+                                    style="padding:10px 14px;border:1px solid #111827;border-radius:10px;background:#111827;color:#fff;cursor:pointer;">
+                                Send
+                            </button>
+                        </div>
+
+                        <div style="margin-top:8px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+                            <button id="cvClear" style="font-size:12px;border:none;background:transparent;color:#6b7280;cursor:pointer;">
+                                Clear chat
+                            </button>
+                            <div style="font-size:12px;color:#6b7280;">
+                                Powered by Fly backend
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
             `;
+            
+            initCVCopilot();
 
             // Add this after content is rendered
             const downloadBtn = document.querySelector('.download-btn');
@@ -138,6 +184,138 @@
             } else {
                 alert('Please wait for CV to load completely before printing.');
             }
+        }
+        function initCVCopilot() {
+            const API_BASE = "https://my-cv-copilot-api.fly.dev";
+
+            const elBox = document.getElementById("cvChatBox");
+            const elInput = document.getElementById("cvInput");
+            const elSend = document.getElementById("cvSend");
+            const elClear = document.getElementById("cvClear");
+            const elStatus = document.getElementById("cvStatus");
+
+            // If widget not present, do nothing
+            if (!elBox || !elInput || !elSend || !elClear || !elStatus) return;
+
+            const storageKey = "mycvcopilot_chat_v1";
+            let chat = [];
+
+            function scrollToBottom() { elBox.scrollTop = elBox.scrollHeight; }
+
+            function render() {
+                elBox.innerHTML = "";
+                for (const m of chat) {
+                    const row = document.createElement("div");
+                    row.style.display = "flex";
+                    row.style.margin = "8px 0";
+                    row.style.justifyContent = m.role === "user" ? "flex-end" : "flex-start";
+
+                    const bubble = document.createElement("div");
+                    bubble.style.maxWidth = "92%";
+                    bubble.style.padding = "10px 12px";
+                    bubble.style.borderRadius = "12px";
+                    bubble.style.border = "1px solid #e5e7eb";
+                    bubble.style.background = m.role === "user" ? "#111827" : "#fff";
+                    bubble.style.color = m.role === "user" ? "#fff" : "#111827";
+                    bubble.style.whiteSpace = "pre-wrap";
+                    bubble.style.wordBreak = "break-word";
+                    bubble.style.fontSize = "14px";
+                    bubble.style.lineHeight = "1.35";
+                    bubble.textContent = m.text;
+
+                    row.appendChild(bubble);
+                    elBox.appendChild(row);
+                }
+                scrollToBottom();
+            }
+
+            function save() {
+                localStorage.setItem(storageKey, JSON.stringify(chat));
+            }
+
+            function add(role, text) {
+                chat.push({ role, text });
+                save();
+                render();
+            }
+
+            async function healthCheck() {
+                try {
+                    const r = await fetch(`${API_BASE}/health`);
+                    elStatus.textContent = r.ok ? "Online" : "Offline";
+                } catch {
+                    elStatus.textContent = "Offline";
+                }
+            }
+
+            async function sendMessage(message) {
+                add("user", message);
+
+                elSend.disabled = true;
+                elSend.textContent = "Sending…";
+
+                try {
+                    const r = await fetch(`${API_BASE}/api/chat`, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ message })
+                    });
+
+                    const data = await r.json().catch(() => ({}));
+
+                    if (!r.ok) {
+                        add("assistant", `Error: ${data.error || r.status}`);
+                    } else {
+                        add("assistant", data.answer ?? "No answer returned.");
+                    }
+                } catch {
+                    add("assistant", "Network error. Please try again.");
+                } finally {
+                    elSend.disabled = false;
+                    elSend.textContent = "Send";
+                }
+            }
+
+            // Load previous chat
+            try {
+                const saved = localStorage.getItem(storageKey);
+                if (saved) chat = JSON.parse(saved) || [];
+            } catch {}
+
+            if (chat.length === 0) {
+                chat = [{ role: "assistant", text: "Hi — I’m My CV Copilot. Ask me anything about my experience." }];
+            }
+
+            render();
+            healthCheck();
+
+            elSend.addEventListener("click", () => {
+                const msg = elInput.value.trim();
+                if (!msg) return;
+                elInput.value = "";
+                sendMessage(msg);
+            });
+
+            elInput.addEventListener("keydown", (e) => {
+                if (e.key === "Enter") {
+                    e.preventDefault();
+                    elSend.click();
+                }
+            });
+
+            elClear.addEventListener("click", () => {
+                chat = [{ role: "assistant", text: "Chat cleared. Ask me anything about my experience." }];
+                save();
+                render();
+            });
+
+            document.querySelectorAll(".cvchip").forEach(btn => {
+                btn.addEventListener("click", () => {
+                    const q = btn.getAttribute("data-q");
+                    elInput.value = q;
+                    elInput.focus();
+                });
+            });
         }
 
         // Load the CV when the page loads
